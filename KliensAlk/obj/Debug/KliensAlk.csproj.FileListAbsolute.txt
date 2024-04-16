@@ -24,3 +24,17 @@ C:\Users\User\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.csproj.CoreCo
 C:\Users\User\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.csproj.CopyComplete
 C:\Users\User\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.exe
 C:\Users\User\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.pdb
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\bin\Debug\KliensAlk.exe.config
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\bin\Debug\KliensAlk.exe
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\bin\Debug\KliensAlk.pdb
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.csproj.AssemblyReference.cache
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.csproj.SuggestedBindingRedirects.cache
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.exe.config
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.Form1.resources
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.Properties.Resources.resources
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.csproj.GenerateResource.cache
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.csproj.CoreCompileInputs.cache
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.csproj.Up2Date
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.exe
+C:\Users\mmiki\Documents\RF\VS\Kliens\KliensAlk\obj\Debug\KliensAlk.pdb
