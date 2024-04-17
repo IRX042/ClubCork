@@ -73,8 +73,11 @@ namespace KliensAlk
 			string bvin = listBox1.SelectedItem.ToString().Split('_')[1];
 
 			var keszlet = p.ProductInventoryFindAll().Content;
-			Console.WriteLine(keszlet[0].ProductBvin.ToString());
-			Console.WriteLine(keszlet[0].Bvin.ToString());
+
+			//Console.WriteLine(keszlet[0].ProductBvin.ToString());
+			//Console.WriteLine(keszlet[0].Bvin.ToString());
+
+			Console.WriteLine(p.ProductsFind(bvin).Content.ProductName);
 
 			string raktar = "hiba";
             for (int i = 0; i < keszlet.Count; i++)
