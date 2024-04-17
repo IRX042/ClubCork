@@ -16,19 +16,17 @@ namespace KliensAlk
 {
 	public partial class Form1 : Form
 	{
-		ApiResponse<List<ProductDTO>> termekadatok = new ApiResponse<List<ProductDTO>>();	
-		private static Api ApiKapcs()
-		{
-			string url = "http://20.234.113.211:8107";
-			string key = "1-79771cd1-cb22-4710-a786-b360d8a92c2f";
-			var p = new Api(url, key);
-			return p;
-		}
+		ApiResponse<List<ProductDTO>> termekadatok = new ApiResponse<List<ProductDTO>>();
+		Api p;
 
 		public Form1()
 		{
 			InitializeComponent();
-			Api p = ApiKapcs();
+
+			string url = "http://20.234.113.211:8107";
+			string key = "1-79771cd1-cb22-4710-a786-b360d8a92c2f";
+			p = new Api(url, key);
+
 			termekadatok = p.ProductsFindAll();
 
 		}
@@ -59,14 +57,12 @@ namespace KliensAlk
 		{
 			string bvin = termekadatok.Content[listBox1.SelectedIndex].Bvin;
 
-			Api p = ApiKapcs();
 			var keszlet = p.ProductInventoryFindAll().Content[listBox1.SelectedIndex];
 			textBox2.Text = keszlet.QuantityOnHand.ToString();
 		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			Api p = ApiKapcs();
 			var keszlet = p.ProductInventoryFindAll().Content[listBox1.SelectedIndex];
 			keszlet.QuantityOnHand += 1;
 			ApiResponse<ProductInventoryDTO> response = p.ProductInventoryUpdate(keszlet);
@@ -75,7 +71,6 @@ namespace KliensAlk
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			Api p = ApiKapcs();
 			var keszlet = p.ProductInventoryFindAll().Content[listBox1.SelectedIndex];
 			if (keszlet.QuantityOnHand > 0) { keszlet.QuantityOnHand -= 1; }
 			ApiResponse<ProductInventoryDTO> response = p.ProductInventoryUpdate(keszlet);
