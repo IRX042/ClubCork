@@ -66,23 +66,13 @@ namespace KliensAlk
 		{
 			Api p = ApiKapcs();
 			int id = listBox1.SelectedIndex;
-			var inventoryId = "4d9443f7-589e-4618-a17b-85f1996250f9";
 			termekadatok = TermekAdatokKi();
 			var bvin = termekadatok.Content[id].Bvin;
 
-			//string ar = p.ProductsFind(bvin).Content.ListPrice.ToString();
+			int keszlet = p.ProductInventoryFindAll().Content[id].QuantityOnHand;
 
-
-			
-			string keszlet = p.ProductInventoryFindAll().Content[0].Bvin;
-
-			// call the API to find the product inventory record
-			//ApiResponse<ProductInventoryDTO> keszlet = p.ProductInventoryFind(inventoryId);
-
-			Console.WriteLine(bvin.ToString());
-			Console.WriteLine(keszlet);
-
-			//textBox2.Text = ar;
+			//Console.WriteLine(p.ProductInventoryFindAll().Content[id].Bvin);
+			textBox2.Text = keszlet.ToString();
 		}
 
 		private void button1_Click(object sender, EventArgs e)
