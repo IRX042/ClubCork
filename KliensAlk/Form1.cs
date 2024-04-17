@@ -28,15 +28,9 @@ namespace KliensAlk
 		public Form1()
 		{
 			InitializeComponent();
-			termekadatok = TermekAdatokKi();
-
-		}
-
-		private static ApiResponse<List<ProductDTO>> TermekAdatokKi()
-		{
 			Api p = ApiKapcs();
-			ApiResponse<List<ProductDTO>> termekadatok = p.ProductsFindAll();
-			return termekadatok;
+			termekadatok = p.ProductsFindAll();
+
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
@@ -47,7 +41,6 @@ namespace KliensAlk
 
 		private void TermekNevSzures()
 		{
-			termekadatok = TermekAdatokKi();
 			var trmk = from x in termekadatok.Content.ToList()
 					   where x.ProductName.Contains(textBox1.Text)
 					   select x;
@@ -64,7 +57,6 @@ namespace KliensAlk
 
 		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			termekadatok = TermekAdatokKi();
 			string bvin = termekadatok.Content[listBox1.SelectedIndex].Bvin;
 
 			Api p = ApiKapcs();
