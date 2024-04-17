@@ -37,14 +37,28 @@ namespace KliensAlk
 
 		}
 
+		public class TermekListaElem
+		{
+			public string ProductName { get; set; }
+			public string Bvin { get; set; }
+
+			public override string ToString()
+			{
+				return $"{ProductName} _ {Bvin}";
+			}
+		}
+
 		private void TermekNevSzures()
 		{
 			var trmk = from x in termekadatok.Content.ToList()
 					   where x.ProductName.Contains(textBox1.Text)
-					   select x;
+					   select new TermekListaElem
+					   {
+						   ProductName = x.ProductName,
+						   Bvin = x.Bvin,
+					   };
 			listBox1.DataSource = trmk.ToList();
 			listBox1.DisplayMember = "ProductName";
-			//listBox1.ValueMember = "";
 		}
 
 
@@ -55,10 +69,23 @@ namespace KliensAlk
 
 		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			string bvin = termekadatok.Content[listBox1.SelectedIndex].Bvin;
 
-			var keszlet = p.ProductInventoryFindAll().Content[listBox1.SelectedIndex];
-			textBox2.Text = keszlet.QuantityOnHand.ToString();
+			string bvin = listBox1.SelectedItem.ToString().Split('_')[1];
+
+			var keszlet = p.ProductInventoryFindAll().Content;
+			Console.WriteLine(keszlet[0].ProductBvin.ToString());
+			Console.WriteLine(keszlet[0].Bvin.ToString());
+
+			string raktar = "hiba";
+            for (int i = 0; i < keszlet.Count; i++)
+            {
+				if (keszlet[i].ProductBvin == bvin)
+				{
+					raktar = keszlet[i].QuantityOnHand.ToString();
+					break;
+				}
+            }
+            textBox2.Text = raktar.ToString();
 		}
 
 		private void button1_Click(object sender, EventArgs e)
