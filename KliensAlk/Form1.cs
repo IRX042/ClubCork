@@ -64,20 +64,30 @@ namespace KliensAlk
 
 		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			Api p = ApiKapcs();
-			int id = listBox1.SelectedIndex;
 			termekadatok = TermekAdatokKi();
-			var bvin = termekadatok.Content[id].Bvin;
+			string bvin = termekadatok.Content[listBox1.SelectedIndex].Bvin;
 
-			int keszlet = p.ProductInventoryFindAll().Content[id].QuantityOnHand;
-
-			//Console.WriteLine(p.ProductInventoryFindAll().Content[id].Bvin);
-			textBox2.Text = keszlet.ToString();
+			Api p = ApiKapcs();
+			var keszlet = p.ProductInventoryFindAll().Content[listBox1.SelectedIndex];
+			textBox2.Text = keszlet.QuantityOnHand.ToString();
 		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{
+			Api p = ApiKapcs();
+			var keszlet = p.ProductInventoryFindAll().Content[listBox1.SelectedIndex];
+			keszlet.QuantityOnHand += 1;
+			ApiResponse<ProductInventoryDTO> response = p.ProductInventoryUpdate(keszlet);
+			textBox2.Text = keszlet.QuantityOnHand.ToString();
+		}
 
+		private void button2_Click(object sender, EventArgs e)
+		{
+			Api p = ApiKapcs();
+			var keszlet = p.ProductInventoryFindAll().Content[listBox1.SelectedIndex];
+			if (keszlet.QuantityOnHand > 0) { keszlet.QuantityOnHand -= 1; }
+			ApiResponse<ProductInventoryDTO> response = p.ProductInventoryUpdate(keszlet);
+			textBox2.Text = keszlet.QuantityOnHand.ToString();
 		}
 	}
 }
