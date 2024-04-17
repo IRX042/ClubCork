@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,14 +45,14 @@ namespace KliensAlk
 
 			public override string ToString()
 			{
-				return $"{ProductName} _ {Bvin}";
+				return $"{ProductName}_{Bvin}";
 			}
 		}
 
 		private void TermekNevSzures()
 		{
 			var trmk = from x in termekadatok.Content.ToList()
-					   where x.ProductName.Contains(textBox1.Text)
+					   where x.ProductName.IndexOf(textBox1.Text, StringComparison.OrdinalIgnoreCase) >= 0	
 					   select new TermekListaElem
 					   {
 						   ProductName = x.ProductName,
@@ -71,40 +72,73 @@ namespace KliensAlk
 		{
 
 			string bvin = listBox1.SelectedItem.ToString().Split('_')[1];
-
 			var keszlet = p.ProductInventoryFindAll().Content;
-
-			//Console.WriteLine(keszlet[0].ProductBvin.ToString());
-			//Console.WriteLine(keszlet[0].Bvin.ToString());
-
-			Console.WriteLine(p.ProductsFind(bvin).Content.ProductName);
 
 			string raktar = "hiba";
             for (int i = 0; i < keszlet.Count; i++)
             {
-				if (keszlet[i].ProductBvin == bvin)
+				if (keszlet[i].ProductBvin.ToString() == bvin)
 				{
 					raktar = keszlet[i].QuantityOnHand.ToString();
 					break;
 				}
             }
+
             textBox2.Text = raktar.ToString();
+
 		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			var keszlet = p.ProductInventoryFindAll().Content[listBox1.SelectedIndex];
-			keszlet.QuantityOnHand += 1;
-			ApiResponse<ProductInventoryDTO> response = p.ProductInventoryUpdate(keszlet);
-			textBox2.Text = keszlet.QuantityOnHand.ToString();
+			string bvin = listBox1.SelectedItem.ToString().Split('_')[1];
+			var keszlet = p.ProductInventoryFindAll().Content;
+
+			ProductInventoryDTO keszletelem = null;
+			for (int i = 0; i < keszlet.Count; i++)
+			{
+				if (keszlet[i].ProductBvin.ToString() == bvin)
+				{
+					keszletelem = keszlet[i];
+					break;
+				}
+			}
+
+			if (keszletelem == null) Console.WriteLine("Raktarkészlet nem található");
+            else
+            {
+				keszletelem.QuantityOnHand += 1;
+				ApiResponse<ProductInventoryDTO> response = p.ProductInventoryUpdate(keszletelem);
+			}
+
+			textBox2.Text = keszletelem.QuantityOnHand.ToString();
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			var keszlet = p.ProductInventoryFindAll().Content[listBox1.SelectedIndex];
-			if (keszlet.QuantityOnHand > 0) { keszlet.QuantityOnHand -= 1; }
-			ApiResponse<ProductInventoryDTO> response = p.ProductInventoryUpdate(keszlet);
-			textBox2.Text = keszlet.QuantityOnHand.ToString();
+			string bvin = listBox1.SelectedItem.ToString().Split('_')[1];
+			var keszlet = p.ProductInventoryFindAll().Content;
+
+			ProductInventoryDTO keszletelem = null;
+			for (int i = 0; i < keszlet.Count; i++)
+			{
+				if (keszlet[i].ProductBvin.ToString() == bvin)
+				{
+					keszletelem = keszlet[i];
+					break;
+				}
+			}
+
+			if (keszletelem == null) Console.WriteLine("Raktarkészlet nem található");
+			else
+			{
+                if (keszletelem.QuantityOnHand > 0)
+                {
+					keszletelem.QuantityOnHand -= 1;
+					ApiResponse<ProductInventoryDTO> response = p.ProductInventoryUpdate(keszletelem);
+				}
+			}
+
+			textBox2.Text = keszletelem.QuantityOnHand.ToString();
 		}
 	}
 }
