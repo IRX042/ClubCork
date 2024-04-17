@@ -77,18 +77,26 @@ namespace KliensAlk
 			//Console.WriteLine(keszlet[0].ProductBvin.ToString());
 			//Console.WriteLine(keszlet[0].Bvin.ToString());
 
+			Console.WriteLine(p.ProductsFind(bvin).Content.Bvin);
 			Console.WriteLine(p.ProductsFind(bvin).Content.ProductName);
 
 			string raktar = "hiba";
+
+			string[] tomb = new string[keszlet.Count];
+
             for (int i = 0; i < keszlet.Count; i++)
             {
+				tomb[i] = keszlet[i].ProductBvin;
+				Console.WriteLine(keszlet[i].ProductBvin);
 				if (keszlet[i].ProductBvin == bvin)
 				{
 					raktar = keszlet[i].QuantityOnHand.ToString();
+					Console.WriteLine("profi");
 					break;
 				}
             }
             textBox2.Text = raktar.ToString();
+			
 		}
 
 		private void button1_Click(object sender, EventArgs e)
