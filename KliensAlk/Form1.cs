@@ -2,6 +2,7 @@
 using Hotcakes.CommerceDTO.v1;
 using Hotcakes.CommerceDTO.v1.Catalog;
 using Hotcakes.CommerceDTO.v1.Client;
+using IronBarCode;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,7 +53,7 @@ namespace KliensAlk
 		private void TermekNevSzures()
 		{
 			var trmk = from x in termekadatok.Content.ToList()
-					   where x.ProductName.IndexOf(textBox1.Text, StringComparison.OrdinalIgnoreCase) >= 0	
+					   where x.ProductName.IndexOf(textBoxNev.Text, StringComparison.OrdinalIgnoreCase) >= 0	
 					   select new TermekListaElem
 					   {
 						   ProductName = x.ProductName,
@@ -84,7 +85,7 @@ namespace KliensAlk
 				}
             }
 
-            textBox2.Text = raktar.ToString();
+            textBoxRaktar.Text = raktar.ToString();
 
 		}
 
@@ -110,7 +111,7 @@ namespace KliensAlk
 				ApiResponse<ProductInventoryDTO> response = p.ProductInventoryUpdate(keszletelem);
 			}
 
-			textBox2.Text = keszletelem.QuantityOnHand.ToString();
+			textBoxRaktar.Text = keszletelem.QuantityOnHand.ToString();
 		}
 
 		private void button2_Click(object sender, EventArgs e)
@@ -138,7 +139,22 @@ namespace KliensAlk
 				}
 			}
 
-			textBox2.Text = keszletelem.QuantityOnHand.ToString();
+			textBoxRaktar.Text = keszletelem.QuantityOnHand.ToString();
+		}
+
+		private void buttonKeszites_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void buttonMentes_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void buttonBeolvasas_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
