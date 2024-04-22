@@ -50,6 +50,7 @@
 			this.textBoxSKU.Name = "textBoxSKU";
 			this.textBoxSKU.Size = new System.Drawing.Size(402, 20);
 			this.textBoxSKU.TabIndex = 13;
+			this.textBoxSKU.TextChanged += new System.EventHandler(this.textBoxSKU_TextChanged);
 			// 
 			// label2
 			// 
@@ -75,6 +76,7 @@
 			this.textBoxNev.Name = "textBoxNev";
 			this.textBoxNev.Size = new System.Drawing.Size(402, 20);
 			this.textBoxNev.TabIndex = 10;
+			this.textBoxNev.TextChanged += new System.EventHandler(this.textBoxNev_TextChanged);
 			// 
 			// Form1
 			// 
@@ -88,6 +90,7 @@
 			this.Controls.Add(this.textBoxNev);
 			this.Name = "Form1";
 			this.Text = "Form1";
+			this.Load += new System.EventHandler(this.Form1_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
