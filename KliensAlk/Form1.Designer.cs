@@ -73,6 +73,7 @@
 			this.listBox1.Name = "listBox1";
 			this.listBox1.Size = new System.Drawing.Size(472, 342);
 			this.listBox1.TabIndex = 11;
+			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
 			// 
 			// textBoxNev
 			// 
@@ -84,24 +85,29 @@
 			// 
 			// buttonMinusz
 			// 
+			this.buttonMinusz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonMinusz.Location = new System.Drawing.Point(741, 94);
 			this.buttonMinusz.Name = "buttonMinusz";
 			this.buttonMinusz.Size = new System.Drawing.Size(34, 23);
 			this.buttonMinusz.TabIndex = 18;
 			this.buttonMinusz.Text = "-";
 			this.buttonMinusz.UseVisualStyleBackColor = true;
+			this.buttonMinusz.Click += new System.EventHandler(this.buttonMinusz_Click);
 			// 
 			// buttonPlusz
 			// 
+			this.buttonPlusz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonPlusz.Location = new System.Drawing.Point(741, 65);
 			this.buttonPlusz.Name = "buttonPlusz";
 			this.buttonPlusz.Size = new System.Drawing.Size(34, 23);
 			this.buttonPlusz.TabIndex = 17;
 			this.buttonPlusz.Text = "+";
 			this.buttonPlusz.UseVisualStyleBackColor = true;
+			this.buttonPlusz.Click += new System.EventHandler(this.buttonPlusz_Click);
 			// 
 			// textBoxRaktar
 			// 
+			this.textBoxRaktar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.textBoxRaktar.Enabled = false;
 			this.textBoxRaktar.Location = new System.Drawing.Point(624, 79);
 			this.textBoxRaktar.Name = "textBoxRaktar";
@@ -110,6 +116,7 @@
 			// 
 			// label1
 			// 
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.label1.Location = new System.Drawing.Point(520, 80);
