@@ -168,5 +168,14 @@ namespace KliensAlk
 
 			textBoxRaktar.Text = keszletelem.QuantityOnHand.ToString();
 		}
+
+		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			DialogResult result = MessageBox.Show("Biztosan bezárja az alkalmazást?", "Bezárás megerősítése", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if (result == DialogResult.No)
+			{
+				e.Cancel = true;
+			}
+		}
 	}
 }
