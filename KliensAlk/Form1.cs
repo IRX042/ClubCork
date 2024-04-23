@@ -27,15 +27,30 @@ namespace KliensAlk
 
 			string url = "http://20.234.113.211:8107";
 			string key = "1-79771cd1-cb22-4710-a786-b360d8a92c2f";
-			p = new Api(url, key);
 
-			termekadatok = p.ProductsFindAll();
+			try
+			{
+				p = new Api(url, key);
+				termekadatok = p.ProductsFindAll();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Hiba az oldalhoz való csatlakozás közben: " + ex.Message);
+				throw;
+			}
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			TermekNevSzures();
-
+			try
+			{
+				TermekNevSzures();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Hiba az oldalhoz való csatlakozás közben: " + ex.Message);
+				throw;
+			}
 		}
 
 		public class TermekListaElem
