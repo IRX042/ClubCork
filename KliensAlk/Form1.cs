@@ -36,7 +36,6 @@ namespace KliensAlk
 			catch (Exception ex)
 			{
 				MessageBox.Show("Hiba az oldalhoz való csatlakozás közben: " + ex.Message);
-				throw;
 			}
 		}
 
@@ -49,7 +48,6 @@ namespace KliensAlk
 			catch (Exception ex)
 			{
 				MessageBox.Show("Hiba az oldalhoz való csatlakozás közben: " + ex.Message);
-				throw;
 			}
 		}
 
