@@ -37,6 +37,13 @@
 			this.buttonPlusz = new System.Windows.Forms.Button();
 			this.textBoxRaktar = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.buttonTorles = new System.Windows.Forms.Button();
+			this.label4 = new System.Windows.Forms.Label();
+			this.buttonBeolvasas = new System.Windows.Forms.Button();
+			this.buttonMentes = new System.Windows.Forms.Button();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.buttonKeszites = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label3
@@ -125,11 +132,71 @@
 			this.label1.TabIndex = 15;
 			this.label1.Text = "Raktárkészlet:";
 			// 
+			// buttonTorles
+			// 
+			this.buttonTorles.Location = new System.Drawing.Point(507, 279);
+			this.buttonTorles.Name = "buttonTorles";
+			this.buttonTorles.Size = new System.Drawing.Size(80, 23);
+			this.buttonTorles.TabIndex = 24;
+			this.buttonTorles.Text = "Törlés";
+			this.buttonTorles.UseVisualStyleBackColor = true;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+			this.label4.Location = new System.Drawing.Point(504, 172);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(71, 17);
+			this.label4.TabIndex = 23;
+			this.label4.Text = "Vonalkód:";
+			// 
+			// buttonBeolvasas
+			// 
+			this.buttonBeolvasas.Location = new System.Drawing.Point(507, 221);
+			this.buttonBeolvasas.Name = "buttonBeolvasas";
+			this.buttonBeolvasas.Size = new System.Drawing.Size(80, 23);
+			this.buttonBeolvasas.TabIndex = 22;
+			this.buttonBeolvasas.Text = "Beolvasás";
+			this.buttonBeolvasas.UseVisualStyleBackColor = true;
+			// 
+			// buttonMentes
+			// 
+			this.buttonMentes.Location = new System.Drawing.Point(507, 250);
+			this.buttonMentes.Name = "buttonMentes";
+			this.buttonMentes.Size = new System.Drawing.Size(80, 23);
+			this.buttonMentes.TabIndex = 21;
+			this.buttonMentes.Text = "Mentés";
+			this.buttonMentes.UseVisualStyleBackColor = true;
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Location = new System.Drawing.Point(593, 181);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(166, 112);
+			this.pictureBox1.TabIndex = 20;
+			this.pictureBox1.TabStop = false;
+			// 
+			// buttonKeszites
+			// 
+			this.buttonKeszites.Location = new System.Drawing.Point(507, 192);
+			this.buttonKeszites.Name = "buttonKeszites";
+			this.buttonKeszites.Size = new System.Drawing.Size(80, 23);
+			this.buttonKeszites.TabIndex = 19;
+			this.buttonKeszites.Text = "Készítés";
+			this.buttonKeszites.UseVisualStyleBackColor = true;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(784, 461);
+			this.Controls.Add(this.buttonTorles);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.buttonBeolvasas);
+			this.Controls.Add(this.buttonMentes);
+			this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.buttonKeszites);
 			this.Controls.Add(this.buttonMinusz);
 			this.Controls.Add(this.buttonPlusz);
 			this.Controls.Add(this.textBoxRaktar);
@@ -139,10 +206,13 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.listBox1);
 			this.Controls.Add(this.textBoxNev);
+			this.MaximumSize = new System.Drawing.Size(800, 500);
+			this.MinimumSize = new System.Drawing.Size(800, 500);
 			this.Name = "Form1";
 			this.Text = "Kliensalkalmazás";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 			this.Load += new System.EventHandler(this.Form1_Load);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -159,6 +229,12 @@
 		private System.Windows.Forms.Button buttonPlusz;
 		private System.Windows.Forms.TextBox textBoxRaktar;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button buttonTorles;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Button buttonBeolvasas;
+		private System.Windows.Forms.Button buttonMentes;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Button buttonKeszites;
 	}
 }
 
