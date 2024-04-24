@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
 
 namespace KliensAlk
 {
@@ -176,6 +177,59 @@ namespace KliensAlk
 			{
 				e.Cancel = true;
 			}
+		}
+
+		private void buttonKeszites_Click(object sender, EventArgs e)
+		{
+			string sku = listBox1.SelectedItem.ToString().Split('_')[2];
+			BarcodeWriter writer = new BarcodeWriter() { Format = BarcodeFormat.CODE_128 };
+			pictureBox1.Image = writer.Write(sku);
+
+
+		}
+
+		private void buttonMentes_Click(object sender, EventArgs e)
+		{
+			SaveFileDialog sf = new SaveFileDialog();
+			sf.Filter = "JPEG Image|*.jpg|PNG Image|*.png|BMP Image|*.bmp|All files|*.*";
+			sf.Title = "Vonalkód mentése képként";
+			sf.ShowDialog();
+
+			if (sf.FileName != "")
+			{
+				try
+				{
+					Image img = pictureBox1.Image;
+					img.Save(sf.FileName);
+
+					MessageBox.Show("Kép mentve!");
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Hiba a kép mentése közben: " + ex.Message);
+				}
+			}
+		}
+
+		private void buttonBeolvasas_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog of = new OpenFileDialog();
+			of.Filter = "Image Files (*.jpg;*.jpeg;*.gif;*.bmp;*.png)|*.jpg;*.jpeg;*.gif;*.bmp;*.png";
+
+			if (of.ShowDialog() == DialogResult.OK)
+			{
+				pictureBox1.Image = Image.FromFile(of.FileName);
+				BarcodeReader reader = new BarcodeReader();
+				var sku = reader.Decode((Bitmap)pictureBox1.Image);
+				if (sku != null) { textBoxSKU.Text = sku.Text; }
+			}
+		}
+
+		private void buttonTorles_Click(object sender, EventArgs e)
+		{
+			pictureBox1.Image = null;
+			textBoxSKU.Text = null;
+			TermekNevSzures();
 		}
 	}
 }

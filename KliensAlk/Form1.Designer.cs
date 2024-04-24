@@ -140,6 +140,7 @@
 			this.buttonTorles.TabIndex = 24;
 			this.buttonTorles.Text = "Törlés";
 			this.buttonTorles.UseVisualStyleBackColor = true;
+			this.buttonTorles.Click += new System.EventHandler(this.buttonTorles_Click);
 			// 
 			// label4
 			// 
@@ -159,6 +160,7 @@
 			this.buttonBeolvasas.TabIndex = 22;
 			this.buttonBeolvasas.Text = "Beolvasás";
 			this.buttonBeolvasas.UseVisualStyleBackColor = true;
+			this.buttonBeolvasas.Click += new System.EventHandler(this.buttonBeolvasas_Click);
 			// 
 			// buttonMentes
 			// 
@@ -168,6 +170,7 @@
 			this.buttonMentes.TabIndex = 21;
 			this.buttonMentes.Text = "Mentés";
 			this.buttonMentes.UseVisualStyleBackColor = true;
+			this.buttonMentes.Click += new System.EventHandler(this.buttonMentes_Click);
 			// 
 			// pictureBox1
 			// 
@@ -185,6 +188,7 @@
 			this.buttonKeszites.TabIndex = 19;
 			this.buttonKeszites.Text = "Készítés";
 			this.buttonKeszites.UseVisualStyleBackColor = true;
+			this.buttonKeszites.Click += new System.EventHandler(this.buttonKeszites_Click);
 			// 
 			// Form1
 			// 
