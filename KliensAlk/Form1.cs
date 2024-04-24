@@ -27,15 +27,28 @@ namespace KliensAlk
 
 			string url = "http://20.234.113.211:8107";
 			string key = "1-79771cd1-cb22-4710-a786-b360d8a92c2f";
-			p = new Api(url, key);
 
-			termekadatok = p.ProductsFindAll();
+			try
+			{
+				p = new Api(url, key);
+				termekadatok = p.ProductsFindAll();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Hiba az oldalhoz való csatlakozás közben: " + ex.Message);
+			}
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			TermekNevSzures();
-
+			try
+			{
+				TermekNevSzures();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Hiba az oldalhoz való csatlakozás közben: " + ex.Message);
+			}
 		}
 
 		public class TermekListaElem
@@ -81,6 +94,88 @@ namespace KliensAlk
 					   };
 			listBox1.DataSource = trmk.ToList();
 			listBox1.DisplayMember = "ProductName";
+		}
+
+		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+			string bvin = listBox1.SelectedItem.ToString().Split('_')[1];
+			var keszlet = p.ProductInventoryFindAll().Content;
+
+			string raktar = "hiba";
+			for (int i = 0; i < keszlet.Count; i++)
+			{
+				if (keszlet[i].ProductBvin.ToString() == bvin)
+				{
+					raktar = keszlet[i].QuantityOnHand.ToString();
+					break;
+				}
+			}
+
+			textBoxRaktar.Text = raktar.ToString();
+
+		}
+
+		private void buttonPlusz_Click(object sender, EventArgs e)
+		{
+			string bvin = listBox1.SelectedItem.ToString().Split('_')[1];
+			var keszlet = p.ProductInventoryFindAll().Content;
+
+			ProductInventoryDTO keszletelem = null;
+			for (int i = 0; i < keszlet.Count; i++)
+			{
+				if (keszlet[i].ProductBvin.ToString() == bvin)
+				{
+					keszletelem = keszlet[i];
+					break;
+				}
+			}
+
+			if (keszletelem == null) Console.WriteLine("Raktarkészlet nem található");
+			else
+			{
+				keszletelem.QuantityOnHand += 1;
+				ApiResponse<ProductInventoryDTO> response = p.ProductInventoryUpdate(keszletelem);
+			}
+
+			textBoxRaktar.Text = keszletelem.QuantityOnHand.ToString();
+		}
+
+		private void buttonMinusz_Click(object sender, EventArgs e)
+		{
+			string bvin = listBox1.SelectedItem.ToString().Split('_')[1];
+			var keszlet = p.ProductInventoryFindAll().Content;
+
+			ProductInventoryDTO keszletelem = null;
+			for (int i = 0; i < keszlet.Count; i++)
+			{
+				if (keszlet[i].ProductBvin.ToString() == bvin)
+				{
+					keszletelem = keszlet[i];
+					break;
+				}
+			}
+
+			if (keszletelem == null) Console.WriteLine("Raktarkészlet nem található");
+			else
+			{
+				if (keszletelem.QuantityOnHand > 0)
+				{
+					keszletelem.QuantityOnHand -= 1;
+					ApiResponse<ProductInventoryDTO> response = p.ProductInventoryUpdate(keszletelem);
+				}
+			}
+
+			textBoxRaktar.Text = keszletelem.QuantityOnHand.ToString();
+		}
+
+		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			DialogResult result = MessageBox.Show("Biztosan bezárja az alkalmazást?", "Bezárás megerősítése", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if (result == DialogResult.No)
+			{
+				e.Cancel = true;
+			}
 		}
 	}
 }
