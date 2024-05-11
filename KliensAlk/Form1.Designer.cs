@@ -93,7 +93,7 @@
 			// buttonMinusz
 			// 
 			this.buttonMinusz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonMinusz.Location = new System.Drawing.Point(725, 94);
+			this.buttonMinusz.Location = new System.Drawing.Point(725, 195);
 			this.buttonMinusz.Name = "buttonMinusz";
 			this.buttonMinusz.Size = new System.Drawing.Size(34, 23);
 			this.buttonMinusz.TabIndex = 18;
@@ -104,7 +104,7 @@
 			// buttonPlusz
 			// 
 			this.buttonPlusz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonPlusz.Location = new System.Drawing.Point(725, 65);
+			this.buttonPlusz.Location = new System.Drawing.Point(725, 166);
 			this.buttonPlusz.Name = "buttonPlusz";
 			this.buttonPlusz.Size = new System.Drawing.Size(34, 23);
 			this.buttonPlusz.TabIndex = 17;
@@ -116,7 +116,7 @@
 			// 
 			this.textBoxRaktar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.textBoxRaktar.Enabled = false;
-			this.textBoxRaktar.Location = new System.Drawing.Point(608, 79);
+			this.textBoxRaktar.Location = new System.Drawing.Point(608, 180);
 			this.textBoxRaktar.Name = "textBoxRaktar";
 			this.textBoxRaktar.Size = new System.Drawing.Size(100, 20);
 			this.textBoxRaktar.TabIndex = 16;
@@ -126,7 +126,7 @@
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-			this.label1.Location = new System.Drawing.Point(504, 80);
+			this.label1.Location = new System.Drawing.Point(504, 181);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(98, 17);
 			this.label1.TabIndex = 15;
@@ -134,7 +134,7 @@
 			// 
 			// buttonTorles
 			// 
-			this.buttonTorles.Location = new System.Drawing.Point(507, 279);
+			this.buttonTorles.Location = new System.Drawing.Point(507, 380);
 			this.buttonTorles.Name = "buttonTorles";
 			this.buttonTorles.Size = new System.Drawing.Size(80, 23);
 			this.buttonTorles.TabIndex = 24;
@@ -146,7 +146,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-			this.label4.Location = new System.Drawing.Point(504, 172);
+			this.label4.Location = new System.Drawing.Point(504, 273);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(71, 17);
 			this.label4.TabIndex = 23;
@@ -154,7 +154,7 @@
 			// 
 			// buttonBeolvasas
 			// 
-			this.buttonBeolvasas.Location = new System.Drawing.Point(507, 221);
+			this.buttonBeolvasas.Location = new System.Drawing.Point(507, 322);
 			this.buttonBeolvasas.Name = "buttonBeolvasas";
 			this.buttonBeolvasas.Size = new System.Drawing.Size(80, 23);
 			this.buttonBeolvasas.TabIndex = 22;
@@ -164,7 +164,7 @@
 			// 
 			// buttonMentes
 			// 
-			this.buttonMentes.Location = new System.Drawing.Point(507, 250);
+			this.buttonMentes.Location = new System.Drawing.Point(507, 351);
 			this.buttonMentes.Name = "buttonMentes";
 			this.buttonMentes.Size = new System.Drawing.Size(80, 23);
 			this.buttonMentes.TabIndex = 21;
@@ -174,7 +174,7 @@
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Location = new System.Drawing.Point(593, 181);
+			this.pictureBox1.Location = new System.Drawing.Point(593, 282);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(166, 112);
 			this.pictureBox1.TabIndex = 20;
@@ -182,7 +182,7 @@
 			// 
 			// buttonKeszites
 			// 
-			this.buttonKeszites.Location = new System.Drawing.Point(507, 192);
+			this.buttonKeszites.Location = new System.Drawing.Point(507, 293);
 			this.buttonKeszites.Name = "buttonKeszites";
 			this.buttonKeszites.Size = new System.Drawing.Size(80, 23);
 			this.buttonKeszites.TabIndex = 19;
