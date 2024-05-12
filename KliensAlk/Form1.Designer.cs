@@ -43,7 +43,9 @@
 			this.buttonMentes = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.buttonKeszites = new System.Windows.Forms.Button();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label3
@@ -190,11 +192,20 @@
 			this.buttonKeszites.UseVisualStyleBackColor = true;
 			this.buttonKeszites.Click += new System.EventHandler(this.buttonKeszites_Click);
 			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.Location = new System.Drawing.Point(581, 6);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(144, 144);
+			this.pictureBox2.TabIndex = 25;
+			this.pictureBox2.TabStop = false;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(784, 461);
+			this.Controls.Add(this.pictureBox2);
 			this.Controls.Add(this.buttonTorles);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.buttonBeolvasas);
@@ -217,6 +228,7 @@
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 			this.Load += new System.EventHandler(this.Form1_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -239,6 +251,7 @@
 		private System.Windows.Forms.Button buttonMentes;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Button buttonKeszites;
+		private System.Windows.Forms.PictureBox pictureBox2;
 	}
 }
 

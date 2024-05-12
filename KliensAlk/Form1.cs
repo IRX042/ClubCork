@@ -42,6 +42,7 @@ namespace KliensAlk
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			pictureBox2.Image = Image.FromFile(Path.Combine(Application.StartupPath, "logo.jpeg"));
 			try
 			{
 				TermekNevSzures();
