@@ -224,10 +224,11 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.listBox1);
 			this.Controls.Add(this.textBoxNev);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximumSize = new System.Drawing.Size(800, 500);
 			this.MinimumSize = new System.Drawing.Size(800, 500);
 			this.Name = "Form1";
-			this.Text = "Kliensalkalmazás";
+			this.Text = "Clubcork™ Raktárkészlet kezelő";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 			this.Load += new System.EventHandler(this.Form1_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
