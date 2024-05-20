@@ -65,7 +65,7 @@ namespace KliensAlk
 			}
 		}
 
-		private void TermekNevSzures()
+		public void TermekNevSzures()
 		{
 			var trmk = from x in termekadatok.Content.ToList()
 					   where x.ProductName.IndexOf(textBoxNev.Text, StringComparison.OrdinalIgnoreCase) >= 0
