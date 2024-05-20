@@ -6,13 +6,17 @@ using System.Linq;
 using System.Windows.Forms;
 using KliensAlk;
 using System.Drawing;
+using Hotcakes.CommerceDTO.v1.Catalog;
+using Hotcakes.CommerceDTO.v1;
+using System.Reflection;
 
 namespace KliensAlk.Tests
 {
 	[TestFixture]
 	public class Form1Tests
 	{
-        public class Api
+		ApiResponse<List<ProductDTO>> termekadatok = new ApiResponse<List<ProductDTO>>();
+		public class Api
         {
             private string _url;
             private string _token;
@@ -38,7 +42,7 @@ namespace KliensAlk.Tests
 		public void Form1_Load_SetsPictureBoxImage()
 		{
 			// Arrange
-			var pictureBox2 = GetControl<PictureBox>(_form, "pictureBox2");
+			var pictureBox2 = GetControl<PictureBox>(_form, "pictureBox1");
 
 			// Act
 			_form.Form1_Load(null, EventArgs.Empty);
@@ -56,7 +60,8 @@ namespace KliensAlk.Tests
 				new ProductDTO { ProductName = "Apple", Sku = "123", Bvin = "1" },
 				new ProductDTO { ProductName = "Banana", Sku = "456", Bvin = "2" }
 			};
-			_form.termekadatok.Content = products;
+
+			SetPrivateField(_form, "termekadatok", new ApiResponse<List<ProductDTO>> { Content = products });
 
 			var textBoxNev = GetControl<TextBox>(_form, "textBoxNev");
 			textBoxNev.Text = "App";
@@ -79,7 +84,8 @@ namespace KliensAlk.Tests
 				new ProductDTO { ProductName = "Apple", Sku = "123", Bvin = "1" },
 				new ProductDTO { ProductName = "Banana", Sku = "456", Bvin = "2" }
 			};
-			_form.termekadatok.Content = products;
+
+			SetPrivateField(_form, "termekadatok", new ApiResponse<List<ProductDTO>> { Content = products });
 
 			var textBoxSKU = GetControl<TextBox>(_form, "textBoxSKU");
 			textBoxSKU.Text = "123";
@@ -96,6 +102,15 @@ namespace KliensAlk.Tests
 		private T GetControl<T>(Control parent, string name) where T : Control
 		{
 			return parent.Controls.Find(name, true).FirstOrDefault() as T;
+		}
+
+		private void SetPrivateField(object obj, string fieldName, object value)
+		{
+			var field = obj.GetType().GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Instance);
+			if (field != null)
+			{
+				field.SetValue(obj, value);
+			}
 		}
 	}
 }

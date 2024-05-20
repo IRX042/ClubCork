@@ -42,7 +42,8 @@ namespace KliensAlk
 
 		public void Form1_Load(object sender, EventArgs e)
 		{
-			pictureBox2.Image = Image.FromFile(Path.Combine(Application.StartupPath, "logo.jpeg"));
+			//pictureBox2.Image = Image.FromFile(Path.Combine(Application.StartupPath, "logo.jpeg"));
+			pictureBox2.Image = Image.FromFile("logo.jpeg");
 			try
 			{
 				TermekNevSzures();
@@ -180,7 +181,7 @@ namespace KliensAlk
 			}
 		}
 
-		private void buttonKeszites_Click(object sender, EventArgs e)
+		public void buttonKeszites_Click(object sender, EventArgs e)
 		{
 			string sku = listBox1.SelectedItem.ToString().Split('_')[2];
 			BarcodeWriter writer = new BarcodeWriter() { Format = BarcodeFormat.CODE_128 };
