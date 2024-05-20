@@ -40,7 +40,7 @@ namespace KliensAlk
 			}
 		}
 
-		private void Form1_Load(object sender, EventArgs e)
+		public void Form1_Load(object sender, EventArgs e)
 		{
 			pictureBox2.Image = Image.FromFile(Path.Combine(Application.StartupPath, "logo.jpeg"));
 			try
@@ -84,7 +84,7 @@ namespace KliensAlk
 			TermekNevSzures();
 		}
 
-		private void textBoxSKU_TextChanged(object sender, EventArgs e)
+		public void textBoxSKU_TextChanged(object sender, EventArgs e)
 		{
 			var trmk = from x in termekadatok.Content.ToList()
 					   where x.Sku == textBoxSKU.Text

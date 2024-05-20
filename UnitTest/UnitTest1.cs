@@ -5,13 +5,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using KliensAlk;
+using System.Drawing;
 
 namespace KliensAlk.Tests
 {
 	[TestFixture]
 	public class Form1Tests
 	{
-		private Form1 _form;
+        public class Api
+        {
+            private string _url;
+            private string _token;
+
+            public Api(string url, string token)
+            {
+                _url = url;
+                _token = token;
+            }
+        }
+
+        private Form1 _form;
 		private Mock<Api> _mockApi;
 
 		[SetUp]

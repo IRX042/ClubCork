@@ -1,2 +1,4 @@
 C:\Users\mmiki\Documents\RF\VS\Kliens\UnitTest\obj\Debug\UnitTest.csproj.AssemblyReference.cache
 C:\Users\mmiki\Documents\RF\VS\Kliens\UnitTest\obj\Debug\UnitTest.csproj.CoreCompileInputs.cache
+C:\Users\Dante\Source\Repos\IRX042\ClubCork\UnitTest\obj\Debug\UnitTest.csproj.AssemblyReference.cache
+C:\Users\Dante\Source\Repos\IRX042\ClubCork\UnitTest\obj\Debug\UnitTest.csproj.CoreCompileInputs.cache
